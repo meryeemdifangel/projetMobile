@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:id="@+id/fragmentRestos"
+        android:enabled="true"
+        android:icon="@drawable/home_scrolled_selector"
+        android:title="Home"
+        android:visible="true" />
+
+    <item
+        android:id="@+id/fragmentNotes"
+        android:actionLayout="@layout/fragment_login"
+        android:enabled="true"
+        android:title="Second"
+        android:visible="true" />
+
+
+    <item
+        android:id="@+id/fragmentProfile"
+        android:enabled="true"
+        android:icon="@drawable/account_selector"
+        android:title="Profile"
+        android:visible="true" />
+</menu>
