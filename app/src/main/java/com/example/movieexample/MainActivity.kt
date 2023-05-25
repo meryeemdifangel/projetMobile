@@ -46,17 +46,13 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        binding.cart.setOnClickListener {
-            val fragment = CartFragment()
-            this.supportFragmentManager.beginTransaction().replace(
-                android.R.id.content,
-                fragment
-            ).addToBackStack(null).commit()
-        }
-
         val navHostFragment = supportFragmentManager. findFragmentById(R.id.fragmentContainerView4) as NavHostFragment
         navController = navHostFragment.navController
         NavigationUI.setupWithNavController(binding.navBottom,navController)
+
+        binding.cart.setOnClickListener {
+            navController.navigate(R.id.cartFragment)
+        }
 
     }
 }

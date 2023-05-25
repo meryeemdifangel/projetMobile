@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/graph"
-    app:startDestination="@id/fragmentMenus">
+    app:startDestination="@id/fragmentRestos2">
 
     <fragment
         android:id="@+id/cartFragment"
@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_cartFragment_to_fragmentMenus"
             app:destination="@id/fragmentMenus" />
+        <action
+            android:id="@+id/action_cartFragment_to_fragmentCheckout2"
+            app:destination="@id/fragmentCheckout2" />
     </fragment>
     <fragment
         android:id="@+id/menuItemFragment"
@@ -37,5 +40,43 @@
         <action
             android:id="@+id/action_fragmentMenus_to_cartFragment"
             app:destination="@id/cartFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentCheckout2"
+        android:name="com.example.movieexample.FragmentCheckout"
+        android:label="fragment_checkout"
+        tools:layout="@layout/fragment_checkout" >
+        <action
+            android:id="@+id/action_fragmentCheckout2_to_cartFragment"
+            app:destination="@id/cartFragment" />
+        <action
+            android:id="@+id/action_fragmentCheckout2_to_fragmentReview2"
+            app:destination="@id/fragmentReview2" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentReview2"
+        android:name="com.example.movieexample.FragmentReview"
+        android:label="fragment_review"
+        tools:layout="@layout/fragment_review" />
+    <fragment
+        android:id="@+id/fragmentRestos2"
+        android:name="com.example.movieexample.FragmentRestos"
+        android:label="fragment_restos"
+        tools:layout="@layout/fragment_restos" >
+        <action
+            android:id="@+id/action_fragmentRestos2_to_fragmentProfile2"
+            app:destination="@id/fragmentProfile2" />
+        <action
+            android:id="@+id/action_fragmentRestos2_to_fragmentMenus"
+            app:destination="@id/fragmentMenus" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentProfile2"
+        android:name="com.example.movieexample.FragmentProfile"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_fragmentProfile2_to_fragmentRestos2"
+            app:destination="@id/fragmentRestos2" />
     </fragment>
 </navigation>

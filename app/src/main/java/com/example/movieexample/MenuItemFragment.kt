@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -62,6 +63,11 @@ class MenuItemFragment : Fragment() {
                 Toast.makeText(this.requireContext(), "Item added to Cart", Toast.LENGTH_SHORT)
                     .show()
                 util.addToCart(this.requireContext(), menuId, viewModel.getCount())
+                val parentActivity = requireActivity()
+                val textView = parentActivity.findViewById<TextView>(R.id.cart_counter)
+                textView.visibility = View.VISIBLE
+                textView.text = util.viewCart(this.requireContext())?.size.toString()
+
             } else {
                 Toast.makeText(
                     this.requireContext(),

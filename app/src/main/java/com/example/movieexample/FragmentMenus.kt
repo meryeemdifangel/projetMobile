@@ -21,7 +21,7 @@ class FragmentMenus : Fragment() {
         binding = FragmentMenusBinding.inflate(layoutInflater)
         val view = binding.root
 
-        val restaurantId = this.requireActivity().intent.getIntExtra("restaurantId",1)
+        val restaurantId = arguments?.getInt("restaurantId", 1)!!
         binding.recyclerView.layoutManager = LinearLayoutManager(this.requireContext())
         binding.recyclerView.adapter = MyAdapter2(AppDatabase.buildDatabase(this.requireContext())?.getMenuDao()?.getRestaurantMenus(restaurantId)!!, this.activity)
 

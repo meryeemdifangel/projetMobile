@@ -9,6 +9,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation.findNavController
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.movieexample.databinding.FragmentCartBinding
 
@@ -40,7 +43,7 @@ class CartFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.logout.setOnClickListener {
+       /* binding.logout.setOnClickListener {
             // Clear the authentication status from shared preferences
             sharedPref.edit().remove(KEY_AUTHENTICATED).apply()
 
@@ -53,12 +56,12 @@ class CartFragment : Fragment() {
                 android.R.id.content,
                 fragment
             )?.addToBackStack(null)?.commit()
-        }
+        }*/
 
         binding.subtotalTv.text = util.getTotal(this.requireContext()).toString() + " DA"
 
         binding.btnCheckOut.setOnClickListener{
-            val authenticated = sharedPref?.getBoolean(KEY_AUTHENTICATED, false) ?: false
+           /* val authenticated = sharedPref?.getBoolean(KEY_AUTHENTICATED, false) ?: false
             if (authenticated) {
                 Toast.makeText(this.requireContext(),"order confirmed",Toast.LENGTH_SHORT).show()
             } else {
@@ -68,12 +71,25 @@ class CartFragment : Fragment() {
                     android.R.id.content,
                     fragment
                 )?.addToBackStack(null)?.commit()
-            }
+            }*/
+        /*    val fragment = FragmentCheckout()
+            activity?.supportFragmentManager?.beginTransaction()?.replace(
+                android.R.id.content,
+                fragment
+            )?.addToBackStack(null)?.commit()*/
 
+            findNavController().navigate(R.id.action_cartFragment_to_fragmentCheckout2)
+
+        }
+
+        binding.btnAddItems.setOnClickListener {
+            findNavController().navigate(R.id.action_cartFragment_to_fragmentMenus)
         }
         // Set up recyclerview
         binding.recyclerView1.layoutManager = LinearLayoutManager(requireContext())
-        binding.recyclerView1.adapter = MyAdapter3(util.viewCart(this.requireContext())!!, this)
+        binding.recyclerView1.adapter = MyAdapter3(util.viewCart(this.requireContext())!!,
+            requireActivity() as MainActivity
+        )
     }
 
 

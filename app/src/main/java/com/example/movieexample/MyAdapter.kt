@@ -1,9 +1,11 @@
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.example.movieexample.R
 import com.example.movieexample.Util
-import com.example.movieexample.MenuActivity
 import com.example.movieexample.Restaurant
 import com.example.movieexample.databinding.ItemRestaurantBinding
 
@@ -23,9 +25,11 @@ val util = Util()
             restaurantCategories.text = data[position].cuisineType
             closedBg.setImageResource(data[position].logo)
             root.setOnClickListener {
-                val intent = Intent(it.context, MenuActivity::class.java)
-                intent.putExtra("restaurantId",data[position].restaurantId)
-                it.context.startActivity(intent)
+                var bundle = bundleOf(
+                    "restaurantId" to data[position].restaurantId
+                )
+                it.findNavController()
+                    .navigate(R.id.action_fragmentRestos2_to_fragmentMenus, bundle)
             }
             imageView3.setOnClickListener {
                 util.openFacebook(it.context,"fb://page/218641444910278")

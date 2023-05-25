@@ -3,14 +3,14 @@
 
 
     <item
-        android:id="@+id/fragmentRestos"
+        android:id="@+id/fragmentRestos2"
         android:enabled="true"
         android:icon="@drawable/home_scrolled_selector"
         android:title="Home"
         android:visible="true" />
 
     <item
-        android:id="@+id/fragmentNotes"
+        android:id="@+id/fragmentReview"
         android:actionLayout="@layout/fragment_login"
         android:enabled="true"
         android:title="Second"
@@ -18,7 +18,7 @@
 
 
     <item
-        android:id="@+id/fragmentProfile"
+        android:id="@+id/fragmentProfile2"
         android:enabled="true"
         android:icon="@drawable/account_selector"
         android:title="Profile"
